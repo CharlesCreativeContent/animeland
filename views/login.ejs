@@ -2,8 +2,10 @@
 <html>
 <head>
     <title>Anime List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="profile.css">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
 </head>
@@ -21,23 +23,38 @@
     <form action="/login" method="post">
         <div class="form-group">
             <label>Email</label>
-            <input type="text" class="form-control" name="email">
+            <input type="text" class="form-control" name="email" placeholder="weeb@weeb.com">
         </div>
         <div class="form-group">
             <label>Password</label>
-            <input type="password" class="form-control" name="password">
+            <input type="password" class="form-control" name="password" placeholder="123Nani?">
         </div>
 
-        <button type="submit" class="hugor">Login</button>
+        <button type="submit"><span class="vamp">Login</span></button>
+
+        <button id="guestLogin"><span class="vamp">Guest</span></button>
     </form>
 
     <hr>
 
-    <p>Need an account? <a href="/signup">Signup</a></p>
-    <p>Or go <a href="/">home</a>.</p>
+    <p>Need an account? <a class="vamp" href="/signup">Signup</a></p>
+    <p>Or go <a class="vamp" href="/">home</a>.</p>
 
 
 </div>
 </div>
 </body>
+<!-- Sets up Guest Login -->
+<script>
+document.getElementById("guestLogin").addEventListener("click",()=>{
+let email = document.querySelector('[type="text"]')
+let password = document.querySelector('[type="password"]')
+let submit = document.querySelector('[type="submit"]')
+
+email.value = "guest@guest.com"
+password.value = "guest"
+submit.click()
+
+})
+</script>
 </html>

@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Top Anime</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/170c91c28b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -18,10 +19,7 @@
         <a href="/manga" class="btn">Manga</a>
         <a href="/logout" class="btn">Logout</a>
     </div>
-
-    <!-- ========Had to disable search because of too NSFW entries=======// -->
-    <!-- <h3 id="marginAuto"><input type="search" placeholder="Search For Manga..."></input>
-    <button><i class="fa fa-search" aria-hidden="true"></i></button></h3> -->
+    
 
     <div class="row">
 
@@ -29,7 +27,7 @@
 </div>
 
     <ul>
-        <%= favs %>
+        <%- favs %>
     </ul>
 
 <ol></ol>
