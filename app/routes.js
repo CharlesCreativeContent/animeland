@@ -69,15 +69,30 @@ db.collection('video').find().toArray((err, result) => {
 
     });
 
+    app.post('/updateFavs', isLoggedIn, function(req, res) {
+          console.log("request: ", req.body.favs)
+        db.collection('hits')
+        .findOneAndReplace({name: req.user.local.email}, {
+            name: req.user.local.email,
+            favs: req.body.favs
+        }, {
+          returnNewDocument: true
+        }, (err, result2) => {
+          if (err) return res.send(err)
+          res.send(result2)
+        })
+
+      });
+
     app.put('/collectFavs', isLoggedIn, function(req, res) {
 
       db.collection('hits').find().toArray((err, result) => {
         if (err) return console.log(err)
-console.log(result.filter(x=>x.name===req.user.local.email)[0].favs)
+          
         db.collection('hits')
         .findOneAndUpdate({name: req.user.local.email}, {
           $set: {
-            favs: req.body.favs + result.filter(x=>x.name===req.user.local.email)[0].favs
+            favs: req.body.favs +  result.filter(x=>x.name===req.user.local.email)[0].favs
           }
         }, {
           sort: {_id: -1},
