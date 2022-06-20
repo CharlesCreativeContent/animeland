@@ -67,6 +67,9 @@ function getMangaData (e){
 function addToFavs (e){
 let child = e.target.parentElement
 let parent = e.target.parentElement.parentElement
+
+let prefix = child.outerHTML.split("Add to").join("Remove from")
+
 console.log("working")
   fetch('/collectFavs', {
     method: 'put',
@@ -74,7 +77,7 @@ console.log("working")
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      'favs': `${child.outerHTML.split("fa-star").join("fa-ban")}`,
+      'favs': `${prefix.split("fa-star").join("fa-ban")}`,
     })
   })
     e.target.style.color = "aqua"
