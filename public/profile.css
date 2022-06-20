@@ -78,7 +78,7 @@ font-family: 'Bangers', cursive;
 li {
   width: var(--card-width);
   height: var(--card-height);
-  background-size: cover;
+  background-size: 100% 100%;
   padding: 3px;
   position: relative;
   border-radius: 6px;
@@ -88,6 +88,7 @@ li {
   font-family: cursive;
   float: left;
   list-style: none;
+    border: 5px solid black;
 }
 
 li:hover {
@@ -95,6 +96,7 @@ li:hover {
   transition: color 1s;
   background-image: none !important;
   background-color: #191c29 !important;
+  border-color: white;
 }
 li:hover:before, li:hover:after {
   animation: none;
@@ -110,6 +112,7 @@ li::before {
   background-image: linear-gradient(
     var(--rotate)
     , #5ddcff, #3c67e3 43%, #4e00c2);
+    border: 5px solid white;
     position: absolute;
     z-index: -1;
     top: -1%;
@@ -129,6 +132,7 @@ li::after {
   margin: 0 auto;
   transform: scale(0.8);
   filter: blur(calc(var(--card-height) / 6));
+    border: 5px solid black;
   background-image: linear-gradient(
     var(--rotate)
     , #5ddcff, #3c67e3 43%, #4e00c2);

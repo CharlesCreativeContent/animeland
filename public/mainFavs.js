@@ -16,7 +16,9 @@ fetch('/updateFavs', {
     method: "POST",
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
-}).then(data=>console.log(data)).catch(err => {
+}).then(data=>{
+window.location.reload()
+}).catch(err => {
  	console.log(err);
  })
     
